@@ -17,7 +17,7 @@ const MainInput = () => {
 
     function handleSubmit (e) {
         e.preventDefault();
-        generateHashtags(inputValue);
+        generateHashtags(inputValue, numberOfHashtags);
     }
 
     return (

@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "sass": "^1.89.2"
+  },
+  "dependencies": {
+    "openai": "^5.11.0"
   }
 }
