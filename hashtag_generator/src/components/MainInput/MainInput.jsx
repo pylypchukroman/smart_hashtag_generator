@@ -1,11 +1,15 @@
 import styles from './MainInput.module.scss';
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {generateHashtags} from "../../api/controller";
+import {InputContext} from "../../context/inputContext";
+import {HashtagContext} from "../../context/hashtagsContext";
 
 
 const MainInput = () => {
     const [inputValue, setInputValue] = useState('');
     const [numberOfHashtags, setNumberOfHashtags] = useState(1);
+    const { input , setInput } = useContext(InputContext);
+    const { hashtags, setHashtags } = useContext(HashtagContext);
 
     function handleChange (e) {
         setInputValue(e.target.value);
@@ -15,9 +19,11 @@ const MainInput = () => {
         setNumberOfHashtags(e.target.value)
     }
 
-    function handleSubmit (e) {
+    async function handleSubmit (e) {
         e.preventDefault();
-        generateHashtags(inputValue, numberOfHashtags);
+        const hash = await generateHashtags(inputValue, numberOfHashtags);
+        setHashtags(hash);
+        setInput(inputValue);
     }
 
     return (
