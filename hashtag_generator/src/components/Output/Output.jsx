@@ -5,20 +5,36 @@ import {HashtagContext} from "../../context/hashtagsContext";
 export const Output = () => {
     const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
-    const [output, setOutput] = useState(input);
+    const [output, setOutput] = useState([]);
+
+
 
     const handleButtonClick = (hash) => {
-        setOutput((prevState) => prevState ? `${prevState} ${hash}` : hash);
+        if (output.includes(hash)) {
+            setOutput(output.filter(x => x !== hash));
+        } else {
+            setOutput([...output,hash]);
+        }
+
     };
 
-    useEffect(() => {
-        setOutput(input);
-    }, [input]);
+    const handleSaveButtonClick = async () => {
+        try {
+            await navigator.clipboard.writeText(`${input}\n${output.join(' ')}`);
+            alert('DONE')
+        } catch (err) {
+            console.error('error', err);
+            alert("Can't copy" )
+        }
+    }
 
     return (
         <div>
             <p>
-                {output ? output : 'input'}
+                {input ? input : 'input'}
+            </p>
+            <p>
+                {output}
             </p>
             {hashtags.map(hash => (
                 <button
@@ -29,6 +45,12 @@ export const Output = () => {
                 </button>
                 )
             )}
+                <button
+                    type="button"
+                    onClick={handleSaveButtonClick}
+                >
+                    Copy to Clipboard
+                </button>
         </div>
     );
 };

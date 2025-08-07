@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true});
+// const client = new OpenAI({apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true});
 
 export const getHashtagsFromOpenAi = async (text, count) => {
     return '#pizza #love #eat';
