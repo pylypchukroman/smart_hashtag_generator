@@ -1,12 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
+import {Hashtag} from "../Hashtag/Hashtag";
 
 export const Output = () => {
     const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
     const [output, setOutput] = useState([]);
-
 
 
     const handleButtonClick = (hash) => {
@@ -18,6 +18,7 @@ export const Output = () => {
 
     };
 
+
     const handleSaveButtonClick = async () => {
         try {
             await navigator.clipboard.writeText(`${input}\n${output.join(' ')}`);
@@ -26,7 +27,13 @@ export const Output = () => {
             console.error('error', err);
             alert("Can't copy" )
         }
-    }
+    };
+
+    const handleResetButtonClick = () => {
+        setInput(' ');
+        setHashtags([]);
+        setOutput([]);
+    };
 
     return (
         <div>
@@ -36,21 +43,21 @@ export const Output = () => {
             <p>
                 {output}
             </p>
-            {hashtags.map(hash => (
-                <button
-                    type="button"
-                    onClick={() => handleButtonClick(hash)}
-                >
-                    {hash}
-                </button>
-                )
-            )}
+            {hashtags.map(hashtag => (
+                <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
+            ))}
                 <button
                     type="button"
                     onClick={handleSaveButtonClick}
                 >
                     Copy to Clipboard
                 </button>
+            <button
+                type="button"
+                onClick={handleResetButtonClick}
+            >
+                Reset
+            </button>
         </div>
     );
 };
