@@ -5,6 +5,7 @@ import MainInput from "./components/MainInput/MainInput";
 import {InputProvider} from "./context/inputContext";
 import {HashtagsProvider} from "./context/hashtagsContext";
 import {Output} from "./components/Output/Output";
+import {Loader} from "./components/Loader/Loader";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <HashtagsProvider>
             <div className="App">
               <Header />
+                <Loader />
               <MainInput />
               <Output />
             </div>
