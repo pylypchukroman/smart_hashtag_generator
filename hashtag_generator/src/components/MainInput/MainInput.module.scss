@@ -1,5 +1,9 @@
+@use 'src/styles/mixins';
+@import 'src/styles/varibles';
+
 .input {
-  border: 1px solid red;
+  border: 1px solid blue;
+  @include mixins.size('width', 100, 150);
 }
 .numberInput {
 

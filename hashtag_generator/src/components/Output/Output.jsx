@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
 import {Hashtag} from "../Hashtag/Hashtag";
+import styles from '../Output/Output.styles.scss'
 
 export const Output = () => {
     const { input, setInput } = useContext(InputContext);
@@ -37,7 +38,7 @@ export const Output = () => {
 
     return (
         <div>
-            <p>
+            <p className={styles.mainText}>
                 {input ? input : 'input'}
             </p>
             <p>
