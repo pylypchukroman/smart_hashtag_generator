@@ -1,19 +1,19 @@
-@import './varibles';
+@use './varibles';
 
 @mixin size($propName, $mobileValue, $desktopValue) {
   @if $mobileValue {
-    #{$propName}: #{$mobileValue / $mobile-mockup * 100}vw;
+    #{$propName}: #{$mobileValue / varibles.$mobile-mockup * 100}vw;
   }
 
   @if $desktopValue {
-    @media (min-width: #{$breakpoint}px) {
-      #{$propName}: #{$desktopValue / $desktop-mockup * 100}vw;
+    @media (min-width: #{varibles.$breakpoint}px) {
+      #{$propName}: #{$desktopValue / varibles.$desktop-mockup * 100}vw;
     }
   }
 }
 
 @mixin for-mobile {
-  @media (max-width: #{$breakpoint}px) {
+  @media (max-width: #{varibles.$breakpoint}px) {
     @content;
   }
 }
