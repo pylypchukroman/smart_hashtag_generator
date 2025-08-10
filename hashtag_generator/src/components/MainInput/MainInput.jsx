@@ -3,19 +3,22 @@ import {useContext, useState} from "react";
 import {generateHashtags} from "../../api/controller";
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
+import {Input} from "../Input/Input";
 
 
-const MainInput = () => {
+export const MainInput = () => {
     const [inputValue, setInputValue] = useState('');
     const [numberOfHashtags, setNumberOfHashtags] = useState(1);
-    const { input , setInput } = useContext(InputContext);
+    const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
 
     function handleChange (e) {
+        e.preventDefault();
         setInputValue(e.target.value);
     }
 
     function handleNumberOfHashtagsChange (e) {
+        e.preventDefault();
         setNumberOfHashtags(e.target.value)
     }
 
@@ -28,30 +31,40 @@ const MainInput = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                className={styles.input}
-                type="text"
-                onChange={handleChange}
-                value={inputValue}
-            >
-            </input>
+            <Input
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+            />
+            <div className={styles.numberInputWrapper}>
+                <input
+                    className={styles.numberInput}
+                    type="range"
+                    min="1"
+                    max="10"
+                    step="1"
+                    onChange={handleNumberOfHashtagsChange}
+                    value={numberOfHashtags}
+                    list="values"
+                >
+                </input>
+                <datalist id="values">
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8"></option>
+                    <option value="9"></option>
+                    <option value="10"></option>
+                </datalist>
+                <p className={styles.hashtagsNumber}>{numberOfHashtags}</p>
+                <button type="submit" className={styles.submitBtn}>
+                    Generate hashtags for Instagram
+                </button>
+            </div>
             <p>{inputValue}</p>
-            <input
-                className={styles.numberInput}
-                type="range"
-                min="1"
-                max="10"
-                step="1"
-                onChange={handleNumberOfHashtagsChange}
-                value={numberOfHashtags}
-            >
-            </input>
-            <p>{numberOfHashtags}</p>
-            <button type="submit">
-                submit
-            </button>
         </form>
     );
 };
-
-export default MainInput;

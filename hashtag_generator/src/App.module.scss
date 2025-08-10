@@ -1,0 +1,10 @@
+@use 'src/styles/mixins' as *;
+@use 'src/styles/varibles' as *;
+
+.app {
+  background-color: #8A8A89;
+  height: 100vh;
+  @include size('padding-right', 300, 300);
+  @include size('padding-left', 300, 300);
+  @include size('padding-top', 200, 200);
+}

@@ -1,19 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import { Header } from "./header/Header";
-import MainInput from "./components/MainInput/MainInput";
+import styles from '../src/App.module.scss'
+import {MainInput} from "./components/MainInput/MainInput";
 import {InputProvider} from "./context/inputContext";
 import {HashtagsProvider} from "./context/hashtagsContext";
 import {Output} from "./components/Output/Output";
 import {Loader} from "./components/Loader/Loader";
+import {Hero} from "./components/Hero/Hero";
 
 function App() {
   return (
       <InputProvider>
           <HashtagsProvider>
-            <div className="App">
-              <Header />
-                <Loader />
+            <div className={styles.app}>
+              <Hero/>
+              {/*<Loader />*/}
               <MainInput />
               <Output />
             </div>
