@@ -2,27 +2,25 @@ import React, {useContext, useState} from 'react';
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
 import {Hashtag} from "../Hashtag/Hashtag";
-import styles from '../Output/Output.styles.scss'
+import styles from './Output.module.scss'
 
 export const Output = () => {
     const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
-    const [output, setOutput] = useState([]);
+    const [hashtagsToShow, setHashtagsToShow] = useState([]);
 
 
     const handleButtonClick = (hash) => {
-        if (output.includes(hash)) {
-            setOutput(output.filter(x => x !== hash));
+        if (hashtagsToShow.includes(hash)) {
+            setHashtagsToShow(hashtagsToShow.filter(x => x !== hash));
         } else {
-            setOutput([...output,hash]);
+            setHashtagsToShow([...hashtagsToShow,hash]);
         }
-
     };
-
 
     const handleSaveButtonClick = async () => {
         try {
-            await navigator.clipboard.writeText(`${input}\n${output.join(' ')}`);
+            await navigator.clipboard.writeText(`${input}\n${hashtagsToShow.join(' ')}`);
             alert('DONE')
         } catch (err) {
             console.error('error', err);
@@ -33,20 +31,22 @@ export const Output = () => {
     const handleResetButtonClick = () => {
         setInput(' ');
         setHashtags([]);
-        setOutput([]);
+        setHashtagsToShow([]);
     };
 
     return (
         <div>
-            <p className={styles.mainText}>
-                {input ? input : 'input'}
+            <p className={styles.mainTextMsg}>
+                {input}
             </p>
-            <p>
-                {output}
+            <p className={styles.hashtags}>
+                {hashtagsToShow.join(' ')}
             </p>
-            {hashtags.map(hashtag => (
-                <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
-            ))}
+            <div>
+                {hashtags.map(hashtag => (
+                    <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
+                ))}
+            </div>
                 <button
                     type="button"
                     onClick={handleSaveButtonClick}

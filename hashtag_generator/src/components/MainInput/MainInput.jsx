@@ -64,7 +64,6 @@ export const MainInput = () => {
                     Generate hashtags for Instagram
                 </button>
             </div>
-            <p>{inputValue}</p>
         </form>
     );
 };

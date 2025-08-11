@@ -1,8 +1,0 @@
-@use 'src/styles/mixins';
-@use 'src/styles/varibles';
-
-.mainText {
-  //@include mixins.size('padding', 50, 50);
-  color: red;
-  border: 1px solid red;
-}
