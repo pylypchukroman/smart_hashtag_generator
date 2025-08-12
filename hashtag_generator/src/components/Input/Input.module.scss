@@ -4,32 +4,33 @@
 .containerStyle {
   position: relative;
   width: 100%;
-  text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   .inputStyle {
     @include mixins.size('font-size', 14, 20);
-    @include mixins.size('height', 60, 120);
+    @include mixins.size('height', 40, 88);
     @include mixins.size('padding-top', 14, 20);
     @include mixins.size('padding-bottom', 14, 20);
-    @include mixins.size('font-left', 14, 15);
-    @include mixins.size('font-right', 14, 15);
-    font-family: Ubuntu, serif;
-    width: 100%;
-    padding: 20px 15px;
+    @include mixins.size('padding-right', 14, 15);
+    @include mixins.size('padding-left', 14, 15);
+    @include mixins.size('width', 300, 800);
+    font-family: varibles.$ubuntu;
     border-radius: 6px;
-    border: 1px solid #3498db;
+    border: 1px solid varibles.$light-blue;
     outline: none;
     position: relative;
-    background-color: transparent;
+    background-color: varibles.$white;
     text-align: start;
   }
 .animatedTextStyle {
-  position: absolute;
-  font-family: Ubuntu, serif;
   @include mixins.size('top', 20, 30);
   @include mixins.size('left', 10, 15);
   @include mixins.size('font-size', 14, 20);
-  color: blue;
+  position: absolute;
+  font-family: varibles.$ubuntu;
+  color: varibles.$dark-blue;
   transform: translateY(-50%);
   pointer-events: none;
   transition: opacity 0.5s ease;

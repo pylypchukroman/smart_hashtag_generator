@@ -1,10 +1,11 @@
-@use 'src/styles/mixins' as *;
-@use 'src/styles/varibles' as *;
+@use 'src/styles/mixins';
+@use 'src/styles/varibles';
 
 .app {
-  background-color: #8A8A89;
+  @include mixins.size('padding-right', 50, 300);
+  @include mixins.size('padding-left', 50, 300);
+  @include mixins.size('padding-top', 80, 120);
+  @include mixins.size('padding-bottom', 100, 150);
+  background-color: varibles.$silver;
   height: 100vh;
-  @include size('padding-right', 300, 300);
-  @include size('padding-left', 300, 300);
-  @include size('padding-top', 200, 200);
 }

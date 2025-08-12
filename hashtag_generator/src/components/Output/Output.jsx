@@ -42,23 +42,27 @@ export const Output = () => {
             <p className={styles.hashtags}>
                 {hashtagsToShow.join(' ')}
             </p>
-            <div>
+            <div className={styles.hashtagsArea}>
                 {hashtags.map(hashtag => (
                     <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
                 ))}
             </div>
+            <div className={styles.BtbArea}>
                 <button
+                    className={styles.btn}
                     type="button"
                     onClick={handleSaveButtonClick}
                 >
                     Copy to Clipboard
                 </button>
-            <button
-                type="button"
-                onClick={handleResetButtonClick}
-            >
-                Reset
-            </button>
+                <button
+                    className={styles.btn}
+                    type="button"
+                    onClick={handleResetButtonClick}
+                >
+                    Reset
+                </button>
+            </div>
         </div>
     );
 };

@@ -5,27 +5,52 @@
   @include mixins.size('padding-top', 10, 20);
   @include mixins.size('padding-left', 10, 20);
   @include mixins.size('padding-right', 10, 20);
-  @include mixins.size('font-size', 10, 20);
+  @include mixins.size('font-size', 10, 18);
   padding-bottom: 0;
   margin-bottom: 0;
-  width: 100%;
-  font-family: Ubuntu, serif;
+  font-family: varibles.$ubuntu;
   height: auto;
-  background-color: white;
+  background-color: varibles.$white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   overflow-wrap: break-word;
 }
 .hashtags {
   @include mixins.size('padding', 10, 20);
-  @include mixins.size('font-size', 10, 20);
-  color: #0B44CD;
+  @include mixins.size('font-size', 10, 18);
+  @include mixins.size('min-height', 10, 18);
+  color: varibles.$dark-blue;
   margin-top: 0;
-  width: 100%;
   font-family: Ubuntu, serif;
-  min-height: 20px;
   background-color: white;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   overflow-wrap: break-word;
+}
+.hashtagsArea {
+  @include mixins.size('margin-bottom', 10, 30);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+.BtbArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  @include mixins.size('margin-left', 10, 100);
+  @include mixins.size('margin-right', 10, 50);
+  @include mixins.size('font-size', 10, 20);
+  background-color: varibles.$light-blue;
+  height: auto;
+  border-radius: 10px;
+  padding: 5px 20px;
+  outline: none;
+  border: none;
+  color: varibles.$white;
+  font-family: varibles.$ubuntu;
 }

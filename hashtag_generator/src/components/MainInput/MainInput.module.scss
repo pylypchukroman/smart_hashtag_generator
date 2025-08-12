@@ -2,15 +2,34 @@
 @use 'src/styles/varibles';
 
 .numberInputWrapper {
+  @include mixins.size('margin-top', 10, 30);
+  @include mixins.size('width', 10, 850);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  justify-content: center;
 }
-.numberInput {
-
+.title {
+  position: absolute;
+  @include mixins.size('bottom', 10, 55);
+  @include mixins.size('left', 10, 10);
 }
 .hashtagsNumber {
-  width: 40px;
+  @include mixins.size('width', 10, 40);
+  font-size: 18px;
+  font-family: varibles.$ubuntu;
+}
+.label {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  font-size: 18px;
+  font-family: varibles.$ubuntu;
 }
 
 input[type="range"] {
@@ -19,12 +38,17 @@ input[type="range"] {
 }
 
 .submitBtn {
-  margin-left: 100px;
-  background-color: blueviolet;
-  height: 40px;
+  font-family: varibles.$ubuntu;
+  @include mixins.size('margin-left', 10, 100);
+  @include mixins.size('height', 10, 40);
+  @include mixins.size('padding-top', 5, 5);
+  @include mixins.size('padding-bottom', 15, 5);
+  @include mixins.size('padding-left', 10, 15);
+  @include mixins.size('padding-right', 10, 15);
+  font-size: 14px;
+  background-color: varibles.$light-blue;
   border-radius: 10px;
-  padding: 5px 10px;
   outline: none;
   border: none;
-  color: #CDCDCD;
+  color: varibles.$white;
 }

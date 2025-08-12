@@ -4,15 +4,14 @@
 .heroText {
   @include mixins.size('font-size', 30, 50);
   @include mixins.size('margin-bottom', 30, 40);
-  font-family: Ubuntu, serif;
+  font-family: varibles.$ubuntu;
   margin-top: 0;
   text-align: center;
 }
 .secondaryText {
   @include mixins.size('margin-bottom', 20, 50);
   @include mixins.size('font-size', 20, 20);
-  font-family: Ubuntu, serif;
+  font-family: varibles.$ubuntu;
   text-align: center;
   margin-top: 0;
-
 }
