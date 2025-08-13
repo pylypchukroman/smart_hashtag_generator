@@ -6,25 +6,26 @@
   @include mixins.size('padding-left', 10, 20);
   @include mixins.size('padding-right', 10, 20);
   @include mixins.size('font-size', 10, 18);
+  @include mixins.size('border-top-left-radius', 4, 6);
+  @include mixins.size('border-top-right-radius', 4, 6);
   padding-bottom: 0;
   margin-bottom: 0;
   font-family: varibles.$ubuntu;
   height: auto;
   background-color: varibles.$white;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
   overflow-wrap: break-word;
 }
 .hashtags {
   @include mixins.size('padding', 10, 20);
   @include mixins.size('font-size', 10, 18);
   @include mixins.size('min-height', 10, 18);
+  @include mixins.size('width', 300, 800);
+  @include mixins.size('border-top-left-radius', 4, 6);
+  @include mixins.size('border-top-right-radius', 4, 6);
   color: varibles.$dark-blue;
   margin-top: 0;
-  font-family: Ubuntu, serif;
+  font-family: varibles.$ubuntu;
   background-color: white;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
   overflow-wrap: break-word;
 }
 .hashtagsArea {
@@ -45,10 +46,13 @@
   @include mixins.size('margin-left', 10, 100);
   @include mixins.size('margin-right', 10, 50);
   @include mixins.size('font-size', 10, 20);
+  @include mixins.size('padding-top', 5, 5);
+  @include mixins.size('padding-bottom', 5, 5);
+  @include mixins.size('padding-left', 10, 20);
+  @include mixins.size('padding-right', 10, 20);
+  @include mixins.size('border-radius', 4, 6);
   background-color: varibles.$light-blue;
   height: auto;
-  border-radius: 10px;
-  padding: 5px 20px;
   outline: none;
   border: none;
   color: varibles.$white;

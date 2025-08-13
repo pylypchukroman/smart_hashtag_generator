@@ -2,8 +2,8 @@
 @use 'src/styles/varibles';
 
 .numberInputWrapper {
-  @include mixins.size('margin-top', 10, 30);
-  @include mixins.size('width', 10, 850);
+  @include mixins.size('margin-top', 25, 30);
+  @include mixins.size('width', 330, 850);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,34 +21,36 @@
 }
 .hashtagsNumber {
   @include mixins.size('width', 10, 40);
-  font-size: 18px;
+  @include mixins.size('font-size', 10, 18);
   font-family: varibles.$ubuntu;
 }
 .label {
+  @include mixins.size('font-size', 10, 18);
+  @include mixins.size('bottom', 25, 40);
+  @include mixins.size('left', 15, 50);
+  @include mixins.size('width', 120, 200);
   position: absolute;
-  bottom: 40px;
-  left: 50px;
-  font-size: 18px;
   font-family: varibles.$ubuntu;
 }
 
 input[type="range"] {
-  width: 250px;
-  margin-right: 20px;
+  @include mixins.size('width', 110, 250);
+  @include mixins.size('margin-right', 10, 20);
 }
 
 .submitBtn {
-  font-family: varibles.$ubuntu;
   @include mixins.size('margin-left', 10, 100);
-  @include mixins.size('height', 10, 40);
+  @include mixins.size('margin-right', 10, 50);
+  @include mixins.size('font-size', 10, 20);
+  @include mixins.size('border-radius', 4, 6);
   @include mixins.size('padding-top', 5, 5);
-  @include mixins.size('padding-bottom', 15, 5);
-  @include mixins.size('padding-left', 10, 15);
-  @include mixins.size('padding-right', 10, 15);
-  font-size: 14px;
+  @include mixins.size('padding-bottom', 5, 5);
+  @include mixins.size('padding-left', 10, 20);
+  @include mixins.size('padding-right', 10, 20);
   background-color: varibles.$light-blue;
-  border-radius: 10px;
+  height: auto;
   outline: none;
   border: none;
   color: varibles.$white;
+  font-family: varibles.$ubuntu;
 }

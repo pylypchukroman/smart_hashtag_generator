@@ -1,15 +1,24 @@
 @use './varibles';
 
-@mixin size($propName, $mobileValue, $desktopValue) {
-  @if $mobileValue {
-    #{$propName}: #{$mobileValue / varibles.$mobile-mockup * 100}vw;
+@function strip-unit($value) {
+  @if type-of($value) == 'number' and not unitless($value) {
+    @return $value / (1 * 1#{unit($value)});
   }
+  @return $value;
+}
 
-  @if $desktopValue {
-    @media (min-width: #{varibles.$breakpoint}px) {
-      #{$propName}: #{$desktopValue / varibles.$desktop-mockup * 100}vw;
-    }
-  }
+@mixin size($propName, $mobileValue, $desktopValue, $maxWidth: 1440) {
+  $mobileBase: strip-unit(varibles.$mobile-mockup);
+  $desktopBase: strip-unit(varibles.$desktop-mockup);
+  $maxBase: strip-unit($maxWidth);
+
+  $fluidValue: ($desktopValue / $desktopBase * 100) * 1vw;
+
+  #{$propName}: clamp(
+          #{$mobileValue}px,
+          #{$fluidValue},
+          #{$desktopValue}px
+  );
 }
 
 @mixin for-mobile {

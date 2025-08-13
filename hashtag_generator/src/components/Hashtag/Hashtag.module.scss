@@ -2,14 +2,14 @@
 @use 'src/styles/varibles';
 
 .button {
-  width: auto;
-  border-radius: 6px;
   @include mixins.size('font-size', 10, 22);
   @include mixins.size('margin-right', 5, 8);
   @include mixins.size('padding-top', 5, 5);
   @include mixins.size('padding-bottom', 5, 5);
   @include mixins.size('padding-right', 5, 15);
   @include mixins.size('padding-left', 5, 15);
+  @include mixins.size('border-radius', 4, 6);
+  width: auto;
   font-family: varibles.$ubuntu;
   border: 1px solid varibles.$light-blue;
 }

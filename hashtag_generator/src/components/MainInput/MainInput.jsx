@@ -68,7 +68,7 @@ export const MainInput = () => {
                     <p className={styles.hashtagsNumber}>{numberOfHashtags}</p>
                 </div>
                 <button type="submit" className={styles.submitBtn}>
-                    Generate hashtags for Instagram
+                    Generate hashtags
                 </button>
             </div>
         </form>

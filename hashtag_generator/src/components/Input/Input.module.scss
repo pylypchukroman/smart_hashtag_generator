@@ -9,15 +9,15 @@
   justify-content: center;
 }
   .inputStyle {
-    @include mixins.size('font-size', 14, 20);
+    @include mixins.size('font-size', 10, 20);
     @include mixins.size('height', 40, 88);
     @include mixins.size('padding-top', 14, 20);
     @include mixins.size('padding-bottom', 14, 20);
     @include mixins.size('padding-right', 14, 15);
-    @include mixins.size('padding-left', 14, 15);
+    @include mixins.size('padding-left', 10, 15);
     @include mixins.size('width', 300, 800);
+    @include mixins.size('border-radius', 4, 6);
     font-family: varibles.$ubuntu;
-    border-radius: 6px;
     border: 1px solid varibles.$light-blue;
     outline: none;
     position: relative;
@@ -27,7 +27,8 @@
 .animatedTextStyle {
   @include mixins.size('top', 20, 30);
   @include mixins.size('left', 10, 15);
-  @include mixins.size('font-size', 14, 20);
+  @include mixins.size('font-size', 10, 20);
+  @include mixins.size('width', 250, 800);
   position: absolute;
   font-family: varibles.$ubuntu;
   color: varibles.$dark-blue;

@@ -2,16 +2,23 @@
 @use 'src/styles/varibles';
 
 .heroText {
-  @include mixins.size('font-size', 30, 50);
-  @include mixins.size('margin-bottom', 30, 40);
+  @include mixins.size('font-size', 25, 50);
+  @include mixins.size('margin-bottom', 20, 40);
   font-family: varibles.$ubuntu;
   margin-top: 0;
   text-align: center;
 }
 .secondaryText {
   @include mixins.size('margin-bottom', 20, 50);
-  @include mixins.size('font-size', 20, 20);
+  @include mixins.size('font-size', 14, 20);
+  @include mixins.size('width', 300, 800);
   font-family: varibles.$ubuntu;
   text-align: center;
   margin-top: 0;
+}
+.heroArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
