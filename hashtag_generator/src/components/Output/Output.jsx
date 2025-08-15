@@ -36,33 +36,38 @@ export const Output = () => {
 
     return (
         <div>
-            <p className={styles.mainTextMsg}>
-                {input}
-            </p>
-            <p className={styles.hashtags}>
-                {hashtagsToShow.join(' ')}
-            </p>
-            <div className={styles.hashtagsArea}>
-                {hashtags.map(hashtag => (
-                    <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
-                ))}
-            </div>
-            <div className={styles.BtbArea}>
-                <button
-                    className={styles.btn}
-                    type="button"
-                    onClick={handleSaveButtonClick}
-                >
-                    Copy to Clipboard
-                </button>
-                <button
-                    className={styles.btn}
-                    type="button"
-                    onClick={handleResetButtonClick}
-                >
-                    Reset
-                </button>
-            </div>
+            {hashtags.length >= 1 ? (
+                <div>
+                    <p className={styles.mainTextMsg}>
+                        {input}
+                    </p>
+                    <p className={styles.hashtags}>
+                        {hashtagsToShow.join(' ')}
+                    </p>
+                <div className={styles.hashtagsArea}>
+                    {hashtags.map(hashtag => (
+                        <Hashtag hashtag={hashtag} handleButtonClick={handleButtonClick}/>
+                        ))
+                    }
+                </div>
+                    <div className={styles.BtbArea}>
+                        <button
+                            className={styles.btn}
+                            type="button"
+                            onClick={handleSaveButtonClick}
+                        >
+                            Copy to Clipboard
+                        </button>
+                        <button
+                            className={styles.btn}
+                            type="button"
+                            onClick={handleResetButtonClick}
+                        >
+                            Reset
+                        </button>
+                    </div>
+                </div>
+                ) : null}
         </div>
     );
 };
