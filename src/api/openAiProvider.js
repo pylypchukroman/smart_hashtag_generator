@@ -17,7 +17,4 @@ export const getHashtagsFromOpenAi = async (text, count, setLoading) => {
     } finally {
         setLoading(false);
     }
-
-
-
 }
