@@ -5,16 +5,17 @@ import {HashtagsProvider} from "./context/hashtagsContext";
 import {Output} from "./components/Output/Output";
 import {Loader} from "./components/Loader/Loader";
 import {Hero} from "./components/Hero/Hero";
+import {useState} from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   return (
       <InputProvider>
           <HashtagsProvider>
             <div className={styles.app}>
               <Hero/>
-              {/*<Loader />*/}
-              <MainInput />
-              <Output />
+              <MainInput setLoading = {setLoading} />
+              {loading ? <Loader /> : <Output />}
             </div>
           </HashtagsProvider>
       </InputProvider>

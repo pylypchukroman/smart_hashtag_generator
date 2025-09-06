@@ -6,7 +6,7 @@ import {HashtagContext} from "../../context/hashtagsContext";
 import {Input} from "../Input/Input";
 
 
-export const MainInput = () => {
+export const MainInput = ({setLoading}) => {
     const [inputValue, setInputValue] = useState('');
     const [numberOfHashtags, setNumberOfHashtags] = useState(1);
     const { input, setInput } = useContext(InputContext);
@@ -24,7 +24,7 @@ export const MainInput = () => {
 
     async function handleSubmit (e) {
         e.preventDefault();
-        const hash = await generateHashtags(inputValue, numberOfHashtags);
+        const hash = await generateHashtags(inputValue, numberOfHashtags, setLoading);
         setHashtags(hash);
         setInput(inputValue);
     }

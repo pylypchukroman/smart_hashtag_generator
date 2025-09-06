@@ -1,8 +1,10 @@
+@use 'src/styles/varibles';
+
 .loader {
   position: absolute;
   width: 2.5em;
   height: 2.5em;
-  top: calc(50% - 1.25em);
+  top: calc(80% - 1.25em);
   left: calc(50% - 1.25em);
   transform: rotate(8deg);
 }
@@ -27,35 +29,35 @@
 @keyframes before {
   0% {
     width: 0.5em;
-    box-shadow: 1em -0.5em black, -1em 0.5em black;
+    box-shadow: 1em -0.5em varibles.$secondary-color, -1em 0.5em varibles.$secondary-color;
   }
   35% {
     width: 2.5em;
-    box-shadow: 0 -0.5em black, 0 0.5em black;
+    box-shadow: 0 -0.5em varibles.$secondary-color, 0 0.5em varibles.$secondary-color;
   }
   70% {
     width: 0.5em;
-    box-shadow: -1em -0.5em black, 1em 0.5em black;
+    box-shadow: -1em -0.5em varibles.$secondary-color, 1em 0.5em varibles.$secondary-color;
   }
   100% {
-    box-shadow: 1em -0.5em black, -1em 0.5em black;
+    box-shadow: 1em -0.5em varibles.$secondary-color, -1em 0.5em varibles.$secondary-color;
   }
 }
 @keyframes after {
   0% {
     height: 0.5em;
-    box-shadow: 0.5em 1em black, -0.5em -1em black;
+    box-shadow: 0.5em 1em varibles.$secondary-color, -0.5em -1em varibles.$secondary-color;
   }
   35% {
     height: 2.5em;
-    box-shadow: 0.5em 0 black, -0.5em 0 black;
+    box-shadow: 0.5em 0 varibles.$secondary-color, -0.5em 0 varibles.$secondary-color;
   }
   70% {
     height: 0.5em;
-    box-shadow: 0.5em -1em black, -0.5em 1em black;
+    box-shadow: 0.5em -1em varibles.$secondary-color, -0.5em 1em varibles.$secondary-color;
   }
   100% {
-    box-shadow: 0.5em 1em black, -0.5em -1em black;
+    box-shadow: 0.5em 1em varibles.$secondary-color, -0.5em -1em varibles.$secondary-color;
   }
 }
 
