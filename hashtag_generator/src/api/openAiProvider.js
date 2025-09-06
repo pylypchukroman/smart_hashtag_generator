@@ -1,12 +1,11 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true});
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY
+const client = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
 
 export const getHashtagsFromOpenAi = async (text, count, setLoading) => {
-    setLoading(true); // початок завантаження
+    setLoading(true);
     try {
-            // return '#pizza #love #eat';
-
         const response = await client.responses.create({
             model: "gpt-4.1-nano",
             input: `Generate ${count} relevant hashtags for this post: ${text}`

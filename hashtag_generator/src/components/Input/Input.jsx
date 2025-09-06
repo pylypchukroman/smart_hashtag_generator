@@ -27,6 +27,7 @@ export const Input = ({ inputValue, setInputValue }) => {
                 className={styles.inputStyle}
                 value={inputValue}
                 maxLength="200"
+                minLength="5"
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
                 onChange={(e) => setInputValue(e.target.value)}

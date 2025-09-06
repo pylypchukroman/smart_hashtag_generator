@@ -12,11 +12,6 @@ export const MainInput = ({setLoading}) => {
     const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
 
-    function handleChange (e) {
-        e.preventDefault();
-        setInputValue(e.target.value);
-    }
-
     function handleNumberOfHashtagsChange (e) {
         e.preventDefault();
         setNumberOfHashtags(e.target.value)
@@ -68,7 +63,11 @@ export const MainInput = ({setLoading}) => {
                     <label className={styles.label} htmlFor="rang">Number of hashtags</label>
                     <p className={styles.hashtagsNumber}>{numberOfHashtags}</p>
                 </div>
-                <button type="submit" className={styles.submitBtn}>
+                <button
+                    type="submit"
+                    className={styles.submitBtn}
+                    disabled={inputValue.length <= 5}
+                >
                     Generate hashtags
                 </button>
             </div>
