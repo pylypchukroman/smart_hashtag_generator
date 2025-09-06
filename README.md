@@ -2,7 +2,6 @@
 
 ![React](https://img.shields.io/badge/React-19.1.1-blue?logo=react&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-5.12.2-red)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 **Smart Hashtag Generator** is a web application for quickly generating relevant hashtags for social media posts. Paste or type your post, select the number of hashtags, and click **Generate Hashtags**. The AI will generate relevant hashtags, which you can add to your original post by clicking on them. Once you've selected the desired hashtags, the final post can be copied to your clipboard and shared on your social media.
 
