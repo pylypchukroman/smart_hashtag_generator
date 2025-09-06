@@ -14,6 +14,58 @@
   align-items: center;
   justify-content: center;
 }
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(varibles.$silver, 0);
+  &::-webkit-slider-runnable-track {
+    height: 6px;
+    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
+    border-radius: 3px;
+  }
+  &::-moz-range-track {
+    height: 6px;
+    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
+    border-radius: 3px;
+  }
+  &::-ms-track {
+    height: 6px;
+    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
+    border-radius: 3px;
+    border: none;
+    color: transparent;
+  }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: varibles.$white;
+    cursor: pointer;
+    border: 2px solid varibles.$ebony;
+    margin-top: -6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  &::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: varibles.$white;
+    cursor: pointer;
+    border: 2px solid varibles.$ebony;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  &::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: varibles.$white;
+    cursor: pointer;
+    border: 2px solid varibles.$ebony;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+}
 .title {
   position: absolute;
   @include mixins.size('bottom', 10, 55);
@@ -43,14 +95,19 @@ input[type="range"] {
   @include mixins.size('margin-right', 10, 50);
   @include mixins.size('font-size', 10, 20);
   @include mixins.size('border-radius', 4, 6);
-  @include mixins.size('padding-top', 5, 5);
-  @include mixins.size('padding-bottom', 5, 5);
+  @include mixins.size('padding-top', 5, 7);
+  @include mixins.size('padding-bottom', 5, 7);
   @include mixins.size('padding-left', 10, 20);
   @include mixins.size('padding-right', 10, 20);
-  background-color: varibles.$light-blue;
+  background-color: rgba(varibles.$main-color, 0.6);
   height: auto;
   outline: none;
   border: none;
-  color: varibles.$white;
+  color: varibles.$ebony;
   font-family: varibles.$ubuntu;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: varibles.$secondary-color;
+  }
 }

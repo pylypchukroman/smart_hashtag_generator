@@ -11,5 +11,11 @@
   @include mixins.size('border-radius', 4, 6);
   width: auto;
   font-family: varibles.$ubuntu;
-  border: 1px solid varibles.$light-blue;
+  border: 1px solid varibles.$main-color;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+  background-color: rgba(varibles.$main-color, 0.1);
+  &:hover {
+    scale: 1.1;
+  }
 }

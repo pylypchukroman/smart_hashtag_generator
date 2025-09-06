@@ -6,7 +6,7 @@
   @include mixins.size('padding-left', 10, 20);
   @include mixins.size('padding-top', 100, 120);
   @include mixins.size('padding-bottom', 20, 150);
-  background-color: varibles.$silver;
+  background-color: rgba(varibles.$silver, 0.5);
   height: 100vh;
   display: flex;
   align-items: center;

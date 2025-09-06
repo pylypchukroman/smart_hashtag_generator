@@ -18,20 +18,29 @@
     @include mixins.size('width', 300, 800);
     @include mixins.size('border-radius', 4, 6);
     font-family: varibles.$ubuntu;
-    border: 1px solid varibles.$light-blue;
+    border: 1px solid varibles.$silver;
     outline: none;
     position: relative;
     background-color: varibles.$white;
     text-align: start;
+    transition: background-color 1s ease-in-out;
+    &:active,
+    &:focus{
+      outline: none;
+      border: 1px solid transparent;
+      background:
+       linear-gradient(white, white) padding-box,
+       linear-gradient(to right, varibles.$secondary-color, varibles.$main-color) border-box;
+    }
   }
 .animatedTextStyle {
   @include mixins.size('top', 20, 30);
-  @include mixins.size('left', 10, 15);
+  @include mixins.size('left', 10, 20);
   @include mixins.size('font-size', 10, 20);
   @include mixins.size('width', 250, 800);
   position: absolute;
   font-family: varibles.$ubuntu;
-  color: varibles.$dark-blue;
+  color: rgba(varibles.$secondary-color, 0.8);
   transform: translateY(-50%);
   pointer-events: none;
   transition: opacity 0.5s ease;

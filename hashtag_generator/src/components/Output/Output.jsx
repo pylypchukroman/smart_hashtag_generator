@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
 import {Hashtag} from "../Hashtag/Hashtag";
@@ -8,6 +8,7 @@ export const Output = () => {
     const { input, setInput } = useContext(InputContext);
     const { hashtags, setHashtags } = useContext(HashtagContext);
     const [hashtagsToShow, setHashtagsToShow] = useState([]);
+    const timeoutRef = useRef(null);
 
 
     const handleButtonClick = (hash) => {
@@ -29,15 +30,23 @@ export const Output = () => {
     };
 
     const handleResetButtonClick = () => {
-        setInput(' ');
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = setTimeout(() => {
+            setInput(' ');
+            setHashtagsToShow([]);
+        }, 1000)
         setHashtags([]);
-        setHashtagsToShow([]);
     };
 
     return (
         <div>
-            {hashtags.length >= 1 ? (
-                <div>
+            {
+                <div
+                    style={{ opacity: hashtags.length >= 1 ? 1 : 0
+                    }}
+                    className={styles.outputWrapper}>
                     <p className={styles.mainTextMsg}>
                         {input}
                     </p>
@@ -66,8 +75,7 @@ export const Output = () => {
                             Reset
                         </button>
                     </div>
-                </div>
-                ) : null}
+                </div>}
         </div>
     );
 };

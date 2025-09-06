@@ -1,6 +1,9 @@
 @use 'src/styles/mixins';
 @use 'src/styles/varibles';
 
+.outputWrapper {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
 .mainTextMsg {
   @include mixins.size('padding-top', 10, 20);
   @include mixins.size('padding-left', 10, 20);
@@ -8,6 +11,9 @@
   @include mixins.size('font-size', 10, 18);
   @include mixins.size('border-top-left-radius', 4, 6);
   @include mixins.size('border-top-right-radius', 4, 6);
+  border-top: 1px solid varibles.$silver;
+  border-left: 1px solid varibles.$silver;
+  border-right: 1px solid varibles.$silver;
   padding-bottom: 0;
   margin-bottom: 0;
   font-family: varibles.$ubuntu;
@@ -20,8 +26,11 @@
   @include mixins.size('font-size', 10, 18);
   @include mixins.size('min-height', 10, 18);
   @include mixins.size('width', 300, 800);
-  @include mixins.size('border-top-left-radius', 4, 6);
-  @include mixins.size('border-top-right-radius', 4, 6);
+  @include mixins.size('border-bottom-left-radius', 4, 6);
+  @include mixins.size('border-bottom-right-radius', 4, 6);
+  border-bottom: 1px solid varibles.$silver;
+  border-left: 1px solid varibles.$silver;
+  border-right: 1px solid varibles.$silver;
   color: varibles.$dark-blue;
   margin-top: 0;
   font-family: varibles.$ubuntu;
@@ -46,15 +55,20 @@
   @include mixins.size('margin-left', 10, 100);
   @include mixins.size('margin-right', 10, 50);
   @include mixins.size('font-size', 10, 20);
-  @include mixins.size('padding-top', 5, 5);
-  @include mixins.size('padding-bottom', 5, 5);
+  @include mixins.size('padding-top', 5, 7);
+  @include mixins.size('padding-bottom', 5, 7);
   @include mixins.size('padding-left', 10, 20);
   @include mixins.size('padding-right', 10, 20);
   @include mixins.size('border-radius', 4, 6);
-  background-color: varibles.$light-blue;
+  background-color: rgba(varibles.$main-color, 0.6);
   height: auto;
   outline: none;
   border: none;
-  color: varibles.$white;
+  color: varibles.$ebony;
   font-family: varibles.$ubuntu;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: varibles.$secondary-color;
+  }
 }

@@ -34,7 +34,8 @@ export const Input = ({ inputValue, setInputValue }) => {
             {!isFocused && !inputValue.trim() && (
                 <div
                     className={styles.animatedTextStyle}
-                    style={{ opacity: visible ? 1 : 0 }}
+                    style={{ opacity: visible ? 1 : 0
+                }}
                 >
                     {texts[index]}
                 </div>

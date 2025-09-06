@@ -50,6 +50,7 @@ export const MainInput = () => {
                         onChange={handleNumberOfHashtagsChange}
                         value={numberOfHashtags}
                         list="values"
+                        className={styles.input}
                     >
                     </input>
                     <datalist id="values">
