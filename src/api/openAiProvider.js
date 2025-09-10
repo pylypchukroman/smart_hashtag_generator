@@ -8,7 +8,8 @@ export const getHashtagsFromOpenAi = async (text, count, setLoading) => {
     try {
         const response = await client.responses.create({
             model: "gpt-4.1-nano",
-            input: `Generate ${count} relevant hashtags for this post: ${text}`
+            input: `Generate ${count} relevant hashtags for this post: ${text}`,
+            temperature: 1.1
         });
 
         return response.output_text;
