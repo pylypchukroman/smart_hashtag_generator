@@ -4,6 +4,7 @@ import {generateHashtags} from "../../api/controller";
 import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
 import {Input} from "../Input/Input";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 export const MainInput = ({setLoading}) => {
@@ -19,6 +20,10 @@ export const MainInput = ({setLoading}) => {
 
     async function handleSubmit (e) {
         e.preventDefault();
+        if (inputValue.length <= 5) {
+            Notify.failure('Your message is too short');
+            return;
+        }
         const hash = await generateHashtags(inputValue, numberOfHashtags, setLoading);
         setHashtags(hash);
         setInput(inputValue);
@@ -66,7 +71,6 @@ export const MainInput = ({setLoading}) => {
                 <button
                     type="submit"
                     className={styles.submitBtn}
-                    disabled={inputValue.length <= 5}
                 >
                     Generate hashtags
                 </button>
