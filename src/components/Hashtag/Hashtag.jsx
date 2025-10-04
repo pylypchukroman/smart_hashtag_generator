@@ -6,6 +6,7 @@ export const Hashtag = ({ hashtag, handleButtonClick }) => {
 
     return (
         <button
+            key={hashtag}
             className={styles.button}
             type="button"
             onClick={() => handleButtonClick(hashtag)}
