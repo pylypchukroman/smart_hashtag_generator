@@ -14,7 +14,7 @@ export const getHashtagsFromOpenAi = async (text, count, setLoading) => {
 
         return response.output_text;
     } catch (error) {
-        console.error('Помилка:', error);
+        console.error('Error:', error);
     } finally {
         setLoading(false);
     }
