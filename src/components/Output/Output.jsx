@@ -3,6 +3,7 @@ import {InputContext} from "../../context/inputContext";
 import {HashtagContext} from "../../context/hashtagsContext";
 import {Hashtag} from "../Hashtag/Hashtag";
 import styles from './Output.module.scss'
+import {Notify} from "notiflix/build/notiflix-notify-aio";
 
 export const Output = () => {
     const { input, setInput } = useContext(InputContext);
@@ -22,10 +23,10 @@ export const Output = () => {
     const handleSaveButtonClick = async () => {
         try {
             await navigator.clipboard.writeText(`${input}\n${hashtagsToShow.join(' ')}`);
-            alert('DONE')
+            Notify.success("DONE");
         } catch (err) {
+            Notify.failure("Can't copy");
             console.error('error', err);
-            alert("Can't copy" )
         }
     };
 
