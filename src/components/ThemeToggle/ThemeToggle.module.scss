@@ -2,16 +2,13 @@
 @use 'src/styles/varibles';
 
 .toggle {
-  position: fixed;
-  top: clamp(16px, 3vw, 24px);
-  right: clamp(16px, 3vw, 24px);
-  z-index: 100;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
   padding: 0;
+  flex-shrink: 0;
   color: var(--toggle-icon);
   background: var(--toggle-bg);
   border: 1px solid var(--toggle-border);

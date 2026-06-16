@@ -17,11 +17,13 @@ function App() {
       <InputProvider>
         <HashtagsProvider>
           <div className={styles.app}>
-            <ThemeToggle />
             <div className={styles.bgOrb1} aria-hidden="true" />
             <div className={styles.bgOrb2} aria-hidden="true" />
 
             <main className={styles.main}>
+              <div className={styles.headerBar}>
+                <ThemeToggle />
+              </div>
               <Hero />
 
               <section className={styles.card} aria-label="Hashtag generator">
