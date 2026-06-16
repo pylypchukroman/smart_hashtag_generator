@@ -1,0 +1,40 @@
+@use 'src/styles/mixins';
+@use 'src/styles/varibles';
+
+.toggle {
+  position: fixed;
+  top: clamp(16px, 3vw, 24px);
+  right: clamp(16px, 3vw, 24px);
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--toggle-icon);
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  border-radius: varibles.$radius-md;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}

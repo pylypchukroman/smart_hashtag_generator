@@ -1,24 +1,40 @@
-import styles from '../src/App.module.scss'
-import {MainInput} from "./components/MainInput/MainInput";
-import {InputProvider} from "./context/inputContext";
-import {HashtagsProvider} from "./context/hashtagsContext";
-import {Output} from "./components/Output/Output";
-import {Loader} from "./components/Loader/Loader";
-import {Hero} from "./components/Hero/Hero";
-import {useState} from "react";
+import styles from './App.module.scss';
+import { MainInput } from './components/MainInput/MainInput';
+import { InputProvider } from './context/inputContext';
+import { HashtagsProvider } from './context/hashtagsContext';
+import { ThemeProvider } from './context/themeContext';
+import { Output } from './components/Output/Output';
+import { Loader } from './components/Loader/Loader';
+import { Hero } from './components/Hero/Hero';
+import { ThemeToggle } from './components/ThemeToggle/ThemeToggle';
+import { useState } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(false);
+
   return (
+    <ThemeProvider>
       <InputProvider>
-          <HashtagsProvider>
-            <div className={styles.app}>
-              <Hero/>
-              <MainInput setLoading = {setLoading} />
-              {loading ? <Loader /> : <Output />}
-            </div>
-          </HashtagsProvider>
+        <HashtagsProvider>
+          <div className={styles.app}>
+            <ThemeToggle />
+            <div className={styles.bgOrb1} aria-hidden="true" />
+            <div className={styles.bgOrb2} aria-hidden="true" />
+
+            <main className={styles.main}>
+              <Hero />
+
+              <section className={styles.card} aria-label="Hashtag generator">
+                <MainInput setLoading={setLoading} />
+                <div className={styles.resultsArea}>
+                  {loading ? <Loader /> : <Output />}
+                </div>
+              </section>
+            </main>
+          </div>
+        </HashtagsProvider>
       </InputProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,15 +1,36 @@
-// sizing
-$breakpoint: 1024;
+// breakpoints
+$breakpoint-sm: 480;
+$breakpoint: 768;
+$breakpoint-lg: 1024;
+$breakpoint-xl: 1280;
+
+// sizing mockups
 $mobile-mockup: 375;
 $desktop-mockup: 1440;
 $desktop-finish: 1440;
-//colors
-$dark-blue: #0B44CD;
-$light-blue: #3470FF;
-$silver: #CDCDCD;
-$ebony: #121417;
-$white: #FFFFFF;
+
+// colors
+$dark-blue: #0b44cd;
+$light-blue: #3470ff;
+$silver: #e2e8f0;
+$ebony: #0f172a;
+$white: #ffffff;
 $main-color: #00ccc5;
 $secondary-color: #00b3a7;
 
-$ubuntu: Ubuntu, serif;
+$text-muted: #64748b;
+$surface: #ffffff;
+$background: #f1f5f9;
+$border: #e2e8f0;
+
+// typography
+$font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// layout
+$container-max: 860px;
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+$shadow-md: 0 4px 24px rgba(15, 23, 42, 0.08);
+$shadow-lg: 0 12px 48px rgba(15, 23, 42, 0.12);

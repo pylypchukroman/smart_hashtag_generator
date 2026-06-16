@@ -2,13 +2,63 @@
 @use 'src/styles/varibles';
 
 .app {
-  @include mixins.size('padding-right', 10, 20);
-  @include mixins.size('padding-left', 10, 20);
-  @include mixins.size('padding-top', 100, 120);
-  @include mixins.size('padding-bottom', 20, 150);
-  background-color: rgba(varibles.$silver, 0.3);
-  height: 100vh;
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--bg-gradient);
+  transition: background 0.25s ease;
+}
+
+.bgOrb1,
+.bgOrb2 {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.25s ease;
+}
+
+.bgOrb1 {
+  width: min(520px, 90vw);
+  height: min(520px, 90vw);
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, var(--orb-1) 0%, transparent 70%);
+}
+
+.bgOrb2 {
+  width: min(400px, 80vw);
+  height: min(400px, 80vw);
+  bottom: -80px;
+  left: -80px;
+  background: radial-gradient(circle, var(--orb-2) 0%, transparent 70%);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  @include mixins.container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: clamp(32px, 8vw, 72px);
+  gap: clamp(24px, 5vw, 40px);
+}
+
+.card {
+  @include mixins.card;
+  width: 100%;
+  padding: clamp(20px, 4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.resultsArea {
+  min-height: 48px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }

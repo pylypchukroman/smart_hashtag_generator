@@ -1,113 +1,170 @@
 @use 'src/styles/mixins';
 @use 'src/styles/varibles';
 
-.numberInputWrapper {
-  @include mixins.size('margin-top', 25, 30);
-  @include mixins.size('width', 330, 850);
+.form {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
 }
-.wrapper {
-  position: relative;
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: clamp(16px, 3vw, 24px);
+  width: 100%;
+
+  @include mixins.for-mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.sliderGroup {
+  flex: 1;
+  min-width: min(100%, 280px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sliderHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.input {
+
+.label {
+  font-family: varibles.$font-family;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.countBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 10px;
+  font-family: varibles.$font-family;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text);
+  background: rgba(var(--color-accent-rgb), 0.15);
+  border-radius: varibles.$radius-sm;
+}
+
+.slider {
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgba(varibles.$silver, 0);
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-accent-secondary) 0%,
+    var(--color-accent) var(--progress, 50%),
+    var(--color-border) var(--progress, 50%),
+    var(--color-border) 100%
+  );
+  cursor: pointer;
+
   &::-webkit-slider-runnable-track {
     height: 6px;
-    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
     border-radius: 3px;
+    background: transparent;
   }
+
   &::-moz-range-track {
     height: 6px;
-    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
     border-radius: 3px;
+    background: var(--color-border);
   }
-  &::-ms-track {
-    height: 6px;
-    background: linear-gradient(to right, varibles.$secondary-color, varibles.$main-color);
-    border-radius: 3px;
-    border: none;
-    color: transparent;
-  }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: varibles.$white;
+    background: var(--color-thumb);
     cursor: pointer;
-    border: 2px solid varibles.$ebony;
-    margin-top: -6px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--color-accent);
+    margin-top: -8px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(var(--color-accent-rgb), 0.15);
+    }
   }
+
   &::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: varibles.$white;
+    background: var(--color-thumb);
     cursor: pointer;
-    border: 2px solid varibles.$ebony;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--color-accent);
+    box-shadow: var(--shadow-sm);
   }
-  &::-ms-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: varibles.$white;
-    cursor: pointer;
-    border: 2px solid varibles.$ebony;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+  &:focus-visible {
+    @include mixins.focus-ring;
   }
-}
-.title {
-  position: absolute;
-  @include mixins.size('bottom', 10, 55);
-  @include mixins.size('left', 10, 10);
-}
-.hashtagsNumber {
-  @include mixins.size('width', 10, 40);
-  @include mixins.size('font-size', 10, 18);
-  font-family: varibles.$ubuntu;
-}
-.label {
-  @include mixins.size('font-size', 10, 18);
-  @include mixins.size('bottom', 25, 40);
-  @include mixins.size('left', 15, 50);
-  @include mixins.size('width', 120, 200);
-  position: absolute;
-  font-family: varibles.$ubuntu;
 }
 
-input[type="range"] {
-  @include mixins.size('width', 110, 250);
-  @include mixins.size('margin-right', 10, 20);
+.sliderTicks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.tick {
+  width: 2px;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 1px;
 }
 
 .submitBtn {
-  @include mixins.size('margin-left', 10, 100);
-  @include mixins.size('margin-right', 10, 50);
-  @include mixins.size('font-size', 10, 20);
-  @include mixins.size('border-radius', 4, 6);
-  @include mixins.size('padding-top', 5, 7);
-  @include mixins.size('padding-bottom', 5, 7);
-  @include mixins.size('padding-left', 10, 20);
-  @include mixins.size('padding-right', 10, 20);
-  background-color: rgba(varibles.$main-color, 0.6);
-  height: auto;
-  outline: none;
-  border: none;
-  color: varibles.$ebony;
-  font-family: varibles.$ubuntu;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  &:hover {
-    background-color: varibles.$secondary-color;
+  @include mixins.button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 28px;
+  font-size: clamp(0.9375rem, 2.5vw, 1rem);
+  color: var(--color-btn-text);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary));
+  border-radius: varibles.$radius-md;
+  box-shadow: 0 4px 16px rgba(var(--color-accent-rgb), 0.35);
+  white-space: nowrap;
+
+  @include mixins.for-tablet-up {
+    width: auto;
+    min-width: 200px;
   }
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(var(--color-accent-rgb), 0.45);
+  }
+}
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
 }

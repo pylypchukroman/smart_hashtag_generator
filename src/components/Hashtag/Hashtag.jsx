@@ -1,17 +1,14 @@
-import React from "react";
-import styles from '../Hashtag/Hashtag.module.scss'
+import styles from '../Hashtag/Hashtag.module.scss';
 
-
-export const Hashtag = ({ hashtag, handleButtonClick }) => {
-
-    return (
-        <button
-            key={hashtag}
-            className={styles.button}
-            type="button"
-            onClick={() => handleButtonClick(hashtag)}
-        >
-            {hashtag}
-        </button>
-    )
-}
+export const Hashtag = ({ hashtag, isSelected, handleButtonClick }) => {
+  return (
+    <button
+      className={`${styles.button} ${isSelected ? styles.selected : ''}`}
+      type="button"
+      aria-pressed={isSelected}
+      onClick={() => handleButtonClick(hashtag)}
+    >
+      {hashtag}
+    </button>
+  );
+};

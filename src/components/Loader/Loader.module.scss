@@ -1,14 +1,24 @@
 @use 'src/styles/varibles';
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0;
+  width: 100%;
+}
+
 .loader {
-  position: absolute;
+  position: relative;
   width: 2.5em;
   height: 2.5em;
-  top: calc(80% - 1.25em);
-  left: calc(50% - 1.25em);
   transform: rotate(8deg);
 }
-.loader:before, .loader:after {
+
+.loader::before,
+.loader::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -19,11 +29,21 @@
   border-radius: 0.25em;
   transform: translate(-50%, -50%);
 }
-.loader:before {
+
+.loader::before {
   animation: before 2s infinite;
 }
-.loader:after {
+
+.loader::after {
   animation: after 2s infinite;
+}
+
+.text {
+  margin: 0;
+  font-family: varibles.$font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 @keyframes before {
@@ -43,6 +63,7 @@
     box-shadow: 1em -0.5em varibles.$secondary-color, -1em 0.5em varibles.$secondary-color;
   }
 }
+
 @keyframes after {
   0% {
     height: 0.5em;
@@ -60,4 +81,3 @@
     box-shadow: 0.5em 1em varibles.$secondary-color, -0.5em -1em varibles.$secondary-color;
   }
 }
-

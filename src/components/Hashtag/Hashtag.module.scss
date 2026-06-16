@@ -2,20 +2,28 @@
 @use 'src/styles/varibles';
 
 .button {
-  @include mixins.size('font-size', 10, 22);
-  @include mixins.size('margin-right', 5, 8);
-  @include mixins.size('padding-top', 5, 5);
-  @include mixins.size('padding-bottom', 5, 5);
-  @include mixins.size('padding-right', 5, 15);
-  @include mixins.size('padding-left', 5, 15);
-  @include mixins.size('border-radius', 4, 6);
-  width: auto;
-  font-family: varibles.$ubuntu;
-  border: 1px solid varibles.$main-color;
-  cursor: pointer;
-  transition: scale 0.3s ease-in-out;
-  background-color: rgba(varibles.$main-color, 0.1);
+  @include mixins.button-base;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: clamp(0.8125rem, 2vw, 0.9375rem);
+  font-weight: 600;
+  color: var(--color-text);
+  background: rgba(var(--color-accent-rgb), 0.08);
+  border: 1.5px solid rgba(var(--color-accent-rgb), 0.35);
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
   &:hover {
-    scale: 1.04;
+    background: rgba(var(--color-accent-rgb), 0.18);
+    border-color: var(--color-accent);
+  }
+
+  &.selected {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary));
+    border-color: transparent;
+    box-shadow: 0 2px 10px rgba(var(--color-accent-rgb), 0.35);
   }
 }

@@ -1,48 +1,73 @@
 @use 'src/styles/mixins';
 @use 'src/styles/varibles';
 
-.containerStyle {
+.wrapper {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-  .inputStyle {
-    @include mixins.size('font-size', 10, 20);
-    @include mixins.size('height', 40, 88);
-    @include mixins.size('padding-top', 14, 20);
-    @include mixins.size('padding-bottom', 14, 20);
-    @include mixins.size('padding-right', 14, 15);
-    @include mixins.size('padding-left', 10, 15);
-    @include mixins.size('width', 300, 800);
-    @include mixins.size('border-radius', 4, 6);
-    font-family: varibles.$ubuntu;
-    border: 1px solid varibles.$silver;
-    outline: none;
-    position: relative;
-    background-color: varibles.$white;
-    text-align: start;
-    transition: background-color 1s ease-in-out;
-    &:active,
-    &:focus{
-      outline: none;
-      border: 1px solid transparent;
-      background:
-       linear-gradient(white, white) padding-box,
-       linear-gradient(to right, varibles.$secondary-color, varibles.$main-color) border-box;
-    }
-  }
-.animatedTextStyle {
-  @include mixins.size('top', 20, 30);
-  @include mixins.size('left', 10, 20);
-  @include mixins.size('font-size', 10, 20);
-  @include mixins.size('width', 250, 800);
+
+.srOnly {
   position: absolute;
-  font-family: varibles.$ubuntu;
-  color: rgba(varibles.$secondary-color, 0.8);
-  transform: translateY(-50%);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.textarea {
+  width: 100%;
+  min-height: clamp(88px, 18vw, 120px);
+  padding: 16px 18px 36px;
+  font-family: varibles.$font-family;
+  font-size: clamp(0.9375rem, 2.5vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--color-text);
+  background-color: var(--color-input-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: varibles.$radius-md;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:hover {
+    border-color: rgba(var(--color-accent-rgb), 0.4);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--color-input-focus-bg);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.15);
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  right: 60px;
+  font-family: varibles.$font-family;
+  font-size: clamp(0.9375rem, 2.5vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
   pointer-events: none;
   transition: opacity 0.5s ease;
   user-select: none;
+}
+
+.charCount {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-family: varibles.$font-family;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
 }
