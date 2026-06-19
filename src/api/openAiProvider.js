@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const apiKey = process.env.REACT_APP_OPENAI_API_KEY
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 const client = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
 
 export const getHashtagsFromOpenAi = async (text, count, setLoading) => {
