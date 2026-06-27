@@ -10,10 +10,10 @@
 ## Screenshots / Demo
 
 **Main Page**  
-![Main Page](./screenshots/main.png)
+![Main Page](./screenshots/main.webp)
 
 **Hashtag Generation**  
-![Hashtag Generation](./screenshots/generate.png)
+![Hashtag Generation](./screenshots/generate.webp)
 
 ---
 
